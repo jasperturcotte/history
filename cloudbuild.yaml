@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 
            'gcr.io/test-project-326212/test', '.']
-    dir: "history/docker"
+    dir: "docker"
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'gcr.io/test-project-326212/test']
