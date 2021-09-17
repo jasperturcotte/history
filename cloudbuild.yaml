@@ -1,14 +1,15 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA', '.']
+    args: ['build', '-f', 'docker/Dockerfile', '-t', 
+           'gcr.io/test-project-326212/test', '.']
+    
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA']
+    args: ['push',  'gcr.io/test-project-326212/test']
 
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'helloworld', 
-           '--image=us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA', 
+           '--image=gcr.io/test-project-326212/test', 
            '--region', 'us-central1', '--platform', 'managed', 
            '--allow-unauthenticated']
 artifacts:
