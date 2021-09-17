@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-f', 'docker/Dockerfile'. '-t', 
+    args: ['build', '-f', 'docker/Dockerfile', '-t', 
            'gcr.io/test-project-326212/test', '.']
     
 
