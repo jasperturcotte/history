@@ -31,4 +31,5 @@ WORKDIR /var/www/html
 # Listen here
 EXPOSE 80
 
-CMD ["/var/www/html/run.sh"]
+CMD ["/usr/bin/sh", "/var/www/html/run.sh"]
+#CMD ["/usr/bin/tail", "-f", "/dev/null"]
