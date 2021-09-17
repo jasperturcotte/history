@@ -15,13 +15,13 @@ RUN mkdir /var/www/html/scripts
 RUN mkdir /var/www/html/engine
 
 # Set up crontab
-COPY ./docker/conf/engine-cron /etc/cron.d/engine-cron
+COPY ./conf/engine-cron /etc/cron.d/engine-cron
 RUN chmod 0644 /etc/cron.d/engine-cron
 RUN crontab /etc/cron.d/engine-cron
 
 # Copy in configurations
-COPY ./docker/conf/site.conf /etc/nginx/sites-enabled/default
-COPY ./docker/scripts/run.sh /var/www/html/run.sh
+COPY ./conf/site.conf /etc/nginx/sites-enabled/default
+COPY ./scripts/run.sh /var/www/html/run.sh
 COPY ./webroot /var/www/html/webroot
 COPY ./engine /var/www/html/engine
 
