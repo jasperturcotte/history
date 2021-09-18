@@ -29,7 +29,7 @@ WORKDIR /var/www/html
 #VOLUME /var/www/html/webroot
 
 # Listen here
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["/usr/bin/sh", "/var/www/html/run.sh"]
 #CMD ["/usr/bin/tail", "-f", "/dev/null"]
