@@ -19,7 +19,7 @@ artifacts:
       - ${SHORT_SHA}_test_log.xml
 
 images:
-  - us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA
+  - gcr.io/test-project-326212/test
 
 options:
   logging: CLOUD_LOGGING_ONLY
