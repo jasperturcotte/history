@@ -12,11 +12,11 @@ steps:
            '--image=gcr.io/test-project-326212/test', 
            '--region', 'us-central1', '--platform', 'managed', 
            '--allow-unauthenticated']
-artifacts:
-  objects:
-    location: gs://$_BUCKET_NAME/
-    paths:
-      - ${SHORT_SHA}_test_log.xml
+#artifacts:
+#  objects:
+#    location: gs://$_BUCKET_NAME/
+#    paths:
+#      - ${SHORT_SHA}_test_log.xml
 
 images:
   - gcr.io/test-project-326212/test
