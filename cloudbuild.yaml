@@ -7,11 +7,11 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'gcr.io/test-project-326212/test']
 
-  - name: google/cloud-sdk
-    args: ['gcloud', 'run', 'deploy', 'helloworld', 
-           '--image=gcr.io/test-project-326212/test', 
-           '--region', 'us-central1', '--platform', 'managed', 
-           '--allow-unauthenticated']
+#  - name: google/cloud-sdk
+#    args: ['gcloud', 'run', 'deploy', 'helloworld', 
+#           '--image=gcr.io/test-project-326212/test', 
+#           '--region', 'us-central1', '--platform', 'managed', 
+#           '--allow-unauthenticated']
 #artifacts:
 #  objects:
 #    location: gs://$_BUCKET_NAME/
