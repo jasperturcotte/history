@@ -6,20 +6,24 @@ steps:
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'gcr.io/test-project-326212/test']
+    
+#  - name: google/cloud-sdk
+#    args: ['gcloud', 'create', 'deployment', 'test', 
+#           '--image=gcr.io/test-project-326212/test']    
 
-  - name: google/cloud-sdk
-    args: ['gcloud', 'run', 'deploy', 'helloworld', 
-           '--image=gcr.io/test-project-326212/test', 
-           '--region', 'us-central1', '--platform', 'managed', 
-           '--allow-unauthenticated']
-artifacts:
-  objects:
-    location: gs://$_BUCKET_NAME/
-    paths:
-      - ${SHORT_SHA}_test_log.xml
+#  - name: google/cloud-sdk
+#    args: ['gcloud', 'run', 'deploy', 'helloworld', 
+#           '--image=gcr.io/test-project-326212/test', 
+#           '--region', 'us-central1', '--platform', 'managed', 
+#           '--allow-unauthenticated']
+#artifacts:
+#  objects:
+#    location: gs://$_BUCKET_NAME/
+#    paths:
+#      - ${SHORT_SHA}_test_log.xml
 
 images:
-  - us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA
+  - gcr.io/test-project-326212/test
 
 options:
   logging: CLOUD_LOGGING_ONLY
