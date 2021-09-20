@@ -1,15 +1,15 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-f', 'docker/Dockerfile', '-t', 
-           'gcr.io/test-project-326212/test', '.']
+           'gcr.io/test-project-326212/test:$SHORT_SHA', '.']
     
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push',  'gcr.io/test-project-326212/test']
+    args: ['push',  'gcr.io/test-project-326212/test:$SHORT_SHA']
     
 #  - name: google/cloud-sdk
 #    args: ['gcloud', 'create', 'deployment', 'test', 
-#           '--image=gcr.io/test-project-326212/test']    
+#           '--image=gcr.io/test-project-326212/test:$SHORT_SHA']    
 
 #  - name: google/cloud-sdk
 #    args: ['gcloud', 'run', 'deploy', 'helloworld', 
@@ -23,7 +23,7 @@ steps:
 #      - ${SHORT_SHA}_test_log.xml
 
 images:
-  - gcr.io/test-project-326212/test
+  - gcr.io/test-project-326212/test:$SHORT_SHA
 
 options:
   logging: CLOUD_LOGGING_ONLY
