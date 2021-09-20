@@ -1,8 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-f', 'docker/Dockerfile', '-t', 
-           'gcr.io/test-project-326212/test:$SHORT_SHA', '.']
-    
+           'gcr.io/test-project-326212/test:$SHORT_SHA', '.']    
 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push',  'gcr.io/test-project-326212/test:$SHORT_SHA']
@@ -27,4 +26,4 @@ images:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-timeout: 900s
+#timeout: 900s
